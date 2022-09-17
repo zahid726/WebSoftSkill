@@ -34,7 +34,7 @@ export async function getAllCategories() {
 
 export async function getCategoryBySlug(slug) {
   const apolloClient = getApolloClient();
-  const apiHost = new URL(process.env.WORDPRESS_GRAPHQL_ENDPOINT).host;
+  const apiHost = new URL(`https://websoftskills.com/graphql`).host;
 
   let categoryData;
   let seoData;

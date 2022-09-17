@@ -21,7 +21,7 @@ export function getApolloClient() {
 export function _createApolloClient() {
   return new ApolloClient({
     link: new HttpLink({
-      uri: removeLastTrailingSlash(process.env.WORDPRESS_GRAPHQL_ENDPOINT),
+      uri: removeLastTrailingSlash('https://websoftskills.com/graphql'),
     }),
     cache: new InMemoryCache({
       typePolicies: {

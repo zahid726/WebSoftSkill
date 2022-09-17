@@ -4,7 +4,7 @@ const { getFeedData, generateFeed } = require('./util');
 const WebpackPluginCompiler = require('./plugin-compiler');
 
 module.exports = function feed(nextConfig = {}) {
-  const { env, outputDirectory, outputName, verbose = false } = nextConfig;
+  const { outputDirectory, outputName, verbose = false } = nextConfig;
 
   const plugin = {
     name: 'Feed',
@@ -14,7 +14,7 @@ module.exports = function feed(nextConfig = {}) {
     generate: generateFeed,
   };
 
-  const { WORDPRESS_GRAPHQL_ENDPOINT } = env;
+  // const { WORDPRESS_GRAPHQL_ENDPOINT } = env;
 
   return Object.assign({}, nextConfig, {
     webpack(config, options) {
@@ -24,7 +24,7 @@ module.exports = function feed(nextConfig = {}) {
 
       config.plugins.push(
         new WebpackPluginCompiler({
-          url: WORDPRESS_GRAPHQL_ENDPOINT,
+          url: 'https://websoftskills.com/graphql',
           plugin,
           verbose,
         })
